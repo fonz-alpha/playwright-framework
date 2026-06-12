@@ -27,6 +27,8 @@ Running all Ezra/Function Health tests
 
 ```npx playwright test --headed --project=firefox /tests/ezra```
 
+All specific configurations for test runs is found in the ```playwright.config.ts```.
+
 ## Design
 ### Page Object Model
 All pages are found under the ```/pages``` folder.  In the ```/pages/common``` folder you will find ```base.page.ts``` where the ```page``` object is declared only once, in which all pages will extend this class and be able to use.
@@ -49,4 +51,11 @@ The test file ```ezra.spec.ts``` will demonstrate two tests which are grouped wi
 --- test.step("..")
 ```
 
-### Setup/Teardown
+### Setup
+```test.beforeEach()``` runs before each test execution. For the ezra example it is used to login before each test.
+
+### Teardown
+```test.afterEach()``` runs after each test execution. For the ezra example it is used to close the browser.
+
+### Test Data
+The ```parameters.json``` file is used as an external data file to avoid and hard coded test values.  This allows to interchange these files depending on test execution needs and enviroments.
