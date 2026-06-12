@@ -92,10 +92,10 @@ test.describe('BOOK A SCAN Test Suite', () => {
 
         await test.step('can reserve the appointment', async () => {
 
-            await ReserveAppointmentPage.getPage(page).creditCardNumberInput.fill('4242424242424242');
-            await ReserveAppointmentPage.getPage(page).creditCardExpiryInput.fill('12/30');
-            await ReserveAppointmentPage.getPage(page).creditCardCvvInput.fill('123');
-            await ReserveAppointmentPage.getPage(page).creditCardZipCodeInput.fill('12345');
+            await ReserveAppointmentPage.getPage(page).creditCardNumberInput.fill(testData.creditCard.number);
+            await ReserveAppointmentPage.getPage(page).creditCardExpiryInput.fill(testData.creditCard.expiry);
+            await ReserveAppointmentPage.getPage(page).creditCardCvvInput.fill(testData.creditCard.cvv);
+            await ReserveAppointmentPage.getPage(page).creditCardZipCodeInput.fill(testData.creditCard.zipCode);
             await ReserveAppointmentPage.getPage(page).continueButton.click();
 
             await expect(ReserveAppointmentPage.getPage(page).continueButton).toBeHidden();
