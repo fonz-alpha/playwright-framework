@@ -59,3 +59,5 @@ The test file ```ezra.spec.ts``` will demonstrate two tests which are grouped wi
 
 ### Test Data
 The ```parameters.json``` file is used as an external data file to avoid and hard coded test values.  This allows to interchange these files depending on test execution needs and enviroments.
+
+The ```/constants/content.ts``` holds static text within the application that could change in the future.
