@@ -196,9 +196,9 @@ test.describe('BOOK A SCAN Test Suite', () => {
             await ReserveAppointmentPage.getPage(page).affirmPaymentCheckbox.click();
             await ReserveAppointmentPage.getPage(page).continueButton.click();
 
-            await AffirmPaymentPage.getPage(page).mobilePhoneInput.fill('7209804840');
+            await AffirmPaymentPage.getPage(page).mobilePhoneInput.fill(testData.PhoneNumber);
             await AffirmPaymentPage.getPage(page).continueButton.click();
-            await AffirmPaymentPage.getPage(page).phonePinInput.fill('123456');
+            await AffirmPaymentPage.getPage(page).phonePinInput.fill(testData.phonePin);
             await AffirmPaymentPage.planOptions(page, 3).click();
             await AffirmPaymentPage.getPage(page).chooseThisPlanButton.click();
             await AffirmPaymentPage.getPage(page).disclosureCheckbox.click();
