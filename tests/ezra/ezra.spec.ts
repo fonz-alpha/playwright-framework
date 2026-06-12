@@ -7,6 +7,7 @@ import { ReserveAppointmentPage } from '../../pages/ezra/bookscan.reserveappoint
 import { ScanConfirmPage } from '../../pages/ezra/bookscan.scanconfirm.page';
 import { AffirmPaymentPage } from '../../pages/ezra/bookscan.affirmpayment.page';
 import * as testData from '../../parameters.json';
+import { RESERVE_APPOINTMENT_PAGE, SCAN_CONFIRM_PAGE, BOOK_SCAN_SCHEDULE_SCAN_PAGE } from '../../constants/content';
 
 
 test.beforeEach(async ({ page }) => {
@@ -75,7 +76,7 @@ test.describe('BOOK A SCAN Test Suite', () => {
             await expect(BookScanScheduleScanPage.getPage(page).pickMonthButton).toBeHidden({ timeout: 120000 })
 
             await expect(ReserveAppointmentPage.getPage(page).reserveAppointmentHeader).toBeVisible();
-            await expect(ReserveAppointmentPage.getPage(page).reserveAppointmentHeader).toHaveText('Reserve your appointment');
+            await expect(ReserveAppointmentPage.getPage(page).reserveAppointmentHeader).toHaveText(RESERVE_APPOINTMENT_PAGE.RESERVE_APPOINTMENT_HEADER);
             await expect(ReserveAppointmentPage.getPage(page).creditCardNumberInput).toBeEditable();
             await expect(ReserveAppointmentPage.getPage(page).creditCardExpiryInput).toBeEditable()
             await expect(ReserveAppointmentPage.getPage(page).creditCardCvvInput).toBeEditable()
@@ -84,7 +85,7 @@ test.describe('BOOK A SCAN Test Suite', () => {
 
         await test.step('appointment information is correct', async () => {
 
-            await expect(ReserveAppointmentPage.getPage(page).pricingPlanText).toHaveText('MRI Scan');
+            await expect(ReserveAppointmentPage.getPage(page).pricingPlanText).toHaveText(RESERVE_APPOINTMENT_PAGE.PRICING_PLAN_MRI_SCAN_TEXT);
             await expect(ReserveAppointmentPage.getPage(page).pricingCenterText).toHaveText(appointmentLocationName);
             await expect(ReserveAppointmentPage.getPage(page).pricingAddressText).toHaveText(appointmentLocationAddress);
             await expect(ReserveAppointmentPage.getPage(page).pricingDateText).toHaveText(`${appointmentMonth} ${appointmentDay}, ${appointmentYear} • ${appointmentTime} EDT`);
@@ -100,7 +101,7 @@ test.describe('BOOK A SCAN Test Suite', () => {
 
             await expect(ReserveAppointmentPage.getPage(page).continueButton).toBeHidden();
             //await expect(ScanConfirmPage.getPage(page).appointmentConfirmationHeader).toBeHidden();
-            await expect(ScanConfirmPage.getPage(page).appointmentConfirmationHeader).toHaveText('MRI Scan Appointment');
+            await expect(ScanConfirmPage.getPage(page).appointmentConfirmationHeader).toHaveText(SCAN_CONFIRM_PAGE.APPOINTMENT_CONFIRMATION_MRI_SCAN_HEADER);
             await expect(ScanConfirmPage.getPage(page).appointmentConfirmationCenterText).toHaveText(appointmentLocationName);
             await expect(ScanConfirmPage.getPage(page).appointmentConfirmationAddressText).toHaveText(appointmentLocationAddress);
             await expect(ScanConfirmPage.getPage(page).appointmentConfirmationDateText).toHaveText(`${appointmentMonth} ${appointmentDay}, ${appointmentYear} • ${appointmentTime} EDT`);
@@ -149,9 +150,9 @@ test.describe('BOOK A SCAN Test Suite', () => {
             appointmentTime1 = await BookScanScheduleScanPage.timePickerTimeText(page, timeOfDay).innerText();
             await BookScanScheduleScanPage.timePicker(page, timeOfDay).click();
 
-            await expect(BookScanScheduleScanPage.getPage(page).modalHeader).toHaveText('Please select 3 times you are available');
+            await expect(BookScanScheduleScanPage.getPage(page).modalHeader).toHaveText(BOOK_SCAN_SCHEDULE_SCAN_PAGE.MODAL_HEADER);
 
-            await expect(BookScanScheduleScanPage.getPage(page).modalParagraph).toHaveText('QA Automation Center cannot confirm bookings immediately. Please select 3 time slots you are available and we\'ll confirm the final time with you. ');
+            await expect(BookScanScheduleScanPage.getPage(page).modalParagraph).toHaveText(BOOK_SCAN_SCHEDULE_SCAN_PAGE.MODAL_PARAGRAPH);
 
             await BookScanScheduleScanPage.getPage(page).modalIUnderstandButton.click();
 
@@ -171,7 +172,7 @@ test.describe('BOOK A SCAN Test Suite', () => {
             await expect(BookScanScheduleScanPage.getPage(page).pickMonthButton).toBeHidden({ timeout: 120000 })
 
             await expect(ReserveAppointmentPage.getPage(page).reserveAppointmentHeader).toBeVisible();
-            await expect(ReserveAppointmentPage.getPage(page).reserveAppointmentHeader).toHaveText('Reserve your appointment');
+            await expect(ReserveAppointmentPage.getPage(page).reserveAppointmentHeader).toHaveText(RESERVE_APPOINTMENT_PAGE.RESERVE_APPOINTMENT_HEADER);
             await expect(ReserveAppointmentPage.getPage(page).creditCardNumberInput).toBeEditable();
             await expect(ReserveAppointmentPage.getPage(page).creditCardExpiryInput).toBeEditable()
             await expect(ReserveAppointmentPage.getPage(page).creditCardCvvInput).toBeEditable()
@@ -180,7 +181,7 @@ test.describe('BOOK A SCAN Test Suite', () => {
 
         await test.step('appointment information is correct', async () => {
 
-            await expect(ReserveAppointmentPage.getPage(page).pricingPlanText).toHaveText('MRI Scan with Spine');
+            await expect(ReserveAppointmentPage.getPage(page).pricingPlanText).toHaveText(RESERVE_APPOINTMENT_PAGE.PRICING_PLAN_MRI_SCAN_SPINE_TEXT);
             await expect(ReserveAppointmentPage.getPage(page).pricingCenterText).toHaveText(appointmentLocationName);
             await expect(ReserveAppointmentPage.getPage(page).pricingAddressText).toHaveText(appointmentLocationAddress);
             await expect(ReserveAppointmentPage.pricingDateTexts(page, 1)).toHaveText(`${appointmentMonth} ${appointmentDay}, ${appointmentYear} • ${appointmentTime1}`);
@@ -205,7 +206,7 @@ test.describe('BOOK A SCAN Test Suite', () => {
 
             await expect(ReserveAppointmentPage.getPage(page).continueButton).toBeHidden();
             //await expect(ScanConfirmPage.getPage(page).appointmentConfirmationHeader).toBeHidden();
-            await expect(ScanConfirmPage.getPage(page).appointmentConfirmationHeader).toHaveText('MRI Scan with Spine Appointment');
+            await expect(ScanConfirmPage.getPage(page).appointmentConfirmationHeader).toHaveText(SCAN_CONFIRM_PAGE.APPOINTMENT_CONFIRMATION_MRI_SCAN_SPINE_HEADER);
             await expect(ScanConfirmPage.getPage(page).appointmentConfirmationCenterText).toHaveText(appointmentLocationName);
             await expect(ScanConfirmPage.getPage(page).appointmentConfirmationAddressText).toHaveText(appointmentLocationAddress);
             await expect(ScanConfirmPage.appointmentConfirmationDateTexts(page, 1)).toHaveText(`${appointmentMonth} ${appointmentDay}, ${appointmentYear} • ${appointmentTime1} EDT`);
